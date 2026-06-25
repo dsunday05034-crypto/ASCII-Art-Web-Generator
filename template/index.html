@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>ASCII Art Web Generator</title>
+</head>
+
+<body>
+    <header class="portfolio-brand-header">
+        <div class="header-nav-container">
+            <a href="https://danielsunday.name.ng" class="brand-logo-emblem">
+                <span class="bracket-accent">{</span>DS<span class="bracket-accent">}</span>
+            </a>
+
+            <a href="https://danielsunday.name.ng/#projects" class="back-portfolio-btn">
+                &larr; Back to Portfolio
+            </a>
+        </div>
+
+        <div class="title-block">
+            <h1>ASCII Art Web Generator</h1>
+            <p class="subtitle">An optimized backend systems engine built with Go</p>
+        </div>
+    </header>
+
+    <main class="app-container">
+        <form action="/ascii-art" method="post" class="control-dashboard">
+            <div class="form-group text-input-block">
+                <label for="input-text">Text to Convert:</label>
+                <textarea id="input-text" name="text" rows="3" placeholder="Type your text here..."
+                    required>{{.Text}}</textarea>
+            </div>
+
+            <div class="control-grid">
+                <div class="form-group">
+                    <label for="banner">Font Style:</label>
+                    <select id="banner" name="banner">
+                        <option value="standard" {{if eq .Banner "standard" }}selected{{end}}>Standard</option>
+                        <option value="shadow" {{if eq .Banner "shadow" }}selected{{end}}>Shadow</option>
+                        <option value="thinkertoy" {{if eq .Banner "thinkertoy" }}selected{{end}}>Thinkertoy</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="color">Highlight Color:</label>
+                    <select id="color" name="color">
+                        <option value="" {{if eq .Color "" }}selected{{end}}>Default (White)</option>
+                        <option value="#00ff66" {{if eq .Color "#00ff66" }}selected{{end}}>Terminal Green</option>
+                        <option value="#ff3333" {{if eq .Color "#ff3333" }}selected{{end}}>Retro Red</option>
+                        <option value="#3399ff" {{if eq .Color "#3399ff" }}selected{{end}}>Neon Blue</option>
+                        <option value="#ffff33" {{if eq .Color "#ffff33" }}selected{{end}}>Cyber Yellow</option>
+                        <option value="#ff00ff" {{if eq .Color "#ff00ff" }}selected{{end}}>Magenta</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="subMatch">Target Substring to Color:</label>
+                    <input type="text" id="subMatch" name="subMatch" value="{{.SubMatch}}" placeholder="e.g. Hello">
+                </div>
+            </div>
+
+            <button type="submit" class="generate-btn">Generate ASCII Art</button>
+        </form>
+
+        {{if .Result}}
+        <section class="output-wrapper">
+            <div class="output-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="panel-title">Output Canvas</span>
+            </div>
+            <div class="canvas-scroll-container">
+                <pre class="ascii-canvas">{{.Result}}</pre>
+            </div>
+        </section>
+        {{end}}
+    </main>
+</body>
+
+</html>
