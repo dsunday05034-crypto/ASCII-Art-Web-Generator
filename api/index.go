@@ -1,4 +1,4 @@
-package api // Matches your folder workspace architecture cleanly
+package api
 
 import (
 	"embed"
