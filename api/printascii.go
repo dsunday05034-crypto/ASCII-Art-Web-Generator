@@ -1,4 +1,4 @@
-package main
+package api // Matches package namespace seamlessly
 
 import (
 	"embed"
@@ -12,13 +12,11 @@ var bannerFS embed.FS
 func readEmbeddedBanner(bannerName string) ([]string, error) {
 	filepath := "banners/" + bannerName + ".txt"
 
-	// Read file contents straight out of compiled memory space
 	data, err := bannerFS.ReadFile(filepath)
 	if err != nil {
 		return nil, fmt.Errorf("could not find banner style: %s", bannerName)
 	}
 
-	// Clean carriage returns and break into individual lines
 	content := strings.ReplaceAll(string(data), "\r\n", "\n")
 	lines := strings.Split(content, "\n")
 	return lines, nil
@@ -32,14 +30,13 @@ func getCharacterrow(ch rune, row int, bannerLines []string) (string, error) {
 	startLine := 1 + index*(8+1)
 	lineIndex := startLine + row
 
-	// Robust range check (Fixing previous bug)
 	if lineIndex >= 0 && lineIndex < len(bannerLines) {
 		return bannerLines[lineIndex], nil
 	}
 	return "", fmt.Errorf("line index %v out of range", lineIndex)
 }
 
-func printAscii(banner string, input string, color string, subMatch string) (string, error) {
+func PrintAscii(banner string, input string, color string, subMatch string) (string, error) {
 	bannerLines, err := readEmbeddedBanner(banner)
 	if err != nil {
 		return "", err
@@ -72,10 +69,8 @@ func printAscii(banner string, input string, color string, subMatch string) (str
 					return "", err
 				}
 
-				isHighlighted := matchIdx != -1 && chIdx >= matchIdx && chIdx < (matchIdx+matchLen)
-
-				if isHighlighted {
-					result.WriteString(fmt.Sprintf("<span style=\"color: %s;\">%s</span>", color, asciiLines))
+				if matchIdx != -1 && chIdx >= matchIdx && chIdx < matchIdx+matchLen {
+					result.WriteString(fmt.Sprintf("<span style=\"color:%s;\">%s</span>", color, asciiLines))
 				} else {
 					result.WriteString(asciiLines)
 				}
