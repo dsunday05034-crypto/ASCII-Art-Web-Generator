@@ -1,6 +1,15 @@
 {
   "version": 2,
-  "cleanUrls": true,
+  "builds": [
+    {
+      "src": "api/index.go",
+      "use": "@vercel/go"
+    },
+    {
+      "src": "static/**",
+      "use": "@vercel/static"
+    }
+  ],
   "routes": [
     {
       "src": "/static/(.*)",
@@ -8,7 +17,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "/api"
+      "dest": "api/index.go"
     }
   ]
 }
