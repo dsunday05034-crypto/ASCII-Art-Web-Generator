@@ -41,7 +41,6 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 		color := r.FormValue("color")
 		subMatch := r.FormValue("subMatch")
 
-		// Calls the engine logic sitting within the same package seamlessly
 		asciiOutput, err := PrintAscii(banner, text, color, subMatch)
 		if err != nil {
 			http.Error(w, "ASCII processing failure: "+err.Error(), http.StatusInternalServerError)

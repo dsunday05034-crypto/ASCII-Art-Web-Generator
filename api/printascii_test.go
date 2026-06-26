@@ -6,7 +6,6 @@ import (
 )
 
 func TestPrintAscii(t *testing.T) {
-	// Table-driven test cases covering typical inputs and edge cases
 	tests := []struct {
 		name       string
 		banner     string
@@ -22,7 +21,7 @@ func TestPrintAscii(t *testing.T) {
 			input:      "HELL0",
 			color:      "",
 			subMatch:   "",
-			wantSubstr: "|______|", // Standard structural horizontal bar matching your banner file
+			wantSubstr: "|______|", // Standard structural horizontal bar matching my banner file
 			wantErr:    false,
 		},
 		{

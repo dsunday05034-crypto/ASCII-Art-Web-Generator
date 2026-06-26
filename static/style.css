@@ -1,15 +1,12 @@
-/* --- Synced & Energized with danielsunday.name.ng Brand Palette --- */
 :root {
-    --bg-main: #121413;            /* Premium dark organic charcoal */
-    --bg-card: #191c1a;            /* Surface layer */
-    --bg-canvas: #0e100f;          /* Deeper workspace background for clarity */
-    --text-main: #f0f2ee;          /* Crisp off-white primary text */
-    --text-muted: #9ba39a;         /* Muted silver-sage subtext */
-    --accent-sage: #a2b499;        /* Signature brand bracket green */
-    --accent-lime: #c5dc6d;        /* High-visibility vibrant chartreuse */
+    --bg-main: #121413;            
+    --bg-card: #191c1a;            
+    --bg-canvas: #0e100f;          
+    --text-main: #f0f2ee;          
+    --text-muted: #9ba39a;         
+    --accent-sage: #a2b499;        
+    --accent-lime: #c5dc6d;        
     --border-color: rgba(255, 255, 255, 0.04); 
-    
-    /* Dynamic Glow Presets */
     --glow-sage: rgba(162, 180, 153, 0.15);
     --glow-lime: rgba(197, 220, 109, 0.25);
 }
@@ -24,11 +21,9 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* Soft ambient lighting effect in the top-left corner */
     background-image: radial-gradient(circle at 0% 0%, rgba(162, 180, 153, 0.05) 0%, transparent 40%);
 }
 
-/* --- Brand Header Layout --- */
 .portfolio-brand-header {
     width: 100%;
     max-width: 1100px;
@@ -103,7 +98,7 @@ h1 {
 
 .subtitle {
     font-family: 'DM Mono', monospace;
-    color: var(--accent-lime);     /* Swapped to your energetic chartreuse to draw attention */
+    color: var(--accent-lime);     
     margin: 0;
     font-size: 0.85rem;
     text-transform: uppercase;
@@ -120,7 +115,6 @@ h1 {
     margin-bottom: 60px;
 }
 
-/* Dynamic Interactive Dashboard Control Card */
 .control-dashboard {
     background: linear-gradient(145deg, var(--bg-card) 0%, #151816 100%);
     border: 1px solid var(--border-color);
@@ -153,10 +147,9 @@ label {
 }
 
 .form-group:focus-within label {
-    color: var(--accent-sage);     /* Glow label color on active input focus */
+    color: var(--accent-sage);     
 }
 
-/* Inputs, Dropdowns, and Interactive Fields */
 textarea, select, input[type="text"] {
     background-color: var(--bg-main);
     color: var(--text-main);
@@ -181,7 +174,6 @@ textarea:focus, select:focus, input[type="text"]:focus {
     gap: 30px;
 }
 
-/* Premium High-Response Button Component */
 .generate-btn {
     background: linear-gradient(135deg, var(--accent-sage) 0%, #8da084 100%);
     color: #121413;
@@ -211,7 +203,6 @@ textarea:focus, select:focus, input[type="text"]:focus {
     box-shadow: 0 4px 10px rgba(197, 220, 109, 0.2);
 }
 
-/* Terminal Component Window Layout */
 .output-wrapper {
     background-color: var(--bg-card);
     border: 1px solid var(--border-color);
@@ -230,7 +221,6 @@ textarea:focus, select:focus, input[type="text"]:focus {
     border-bottom: 1px solid var(--border-color);
 }
 
-/* Subdued modern window dot arrays */
 .dot {
     width: 11px;
     height: 11px;
@@ -272,10 +262,9 @@ textarea:focus, select:focus, input[type="text"]:focus {
     line-height: 1.35;
     color: var(--accent-sage);
     white-space: pre;
-    text-shadow: 0 0 8px rgba(162, 180, 153, 0.25); /* Subtle matrix canvas character neon bloom */
+    text-shadow: 0 0 8px rgba(162, 180, 153, 0.25); 
 }
 
-/* Smooth enter animation layout for generated outputs */
 @keyframes fadeIn {
     from {
         opacity: 0;
